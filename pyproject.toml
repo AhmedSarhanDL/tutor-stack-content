@@ -29,6 +29,9 @@ dev = [
     "mypy==1.8.0"
 ]
 
+[tool.hatch.build.targets.wheel]
+packages = ["tutor_stack_content"]
+
 [tool.black]
 line-length = 100
 target-version = ['py311']

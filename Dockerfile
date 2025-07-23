@@ -1,20 +1,8 @@
-FROM python:3.11-slim
+ARG SERVICE_NAME=content
 
-WORKDIR /app
+FROM tutor-stack-base:latest
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y procps curl
+ENV SERVICE_NAME=${SERVICE_NAME}
+ENV PORT=8000
 
-# Copy requirements files
-COPY requirements*.txt ./
-
-# Install dependencies
-RUN pip install -r requirements.txt && \
-    if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
-
-# Copy application code
-COPY app /app
-COPY tests /app/tests
-
-# Command to run the application
-CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"] 
+CMD ["python", "-m", "uvicorn", "tutor_stack_content.main:app", "--host", "0.0.0.0", "--port", "8000"] 
