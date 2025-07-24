@@ -27,7 +27,7 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest --cov=app --cov-report=xml
+        pytest --cov=tutor_stack_content --cov-report=xml
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v4
@@ -53,16 +53,16 @@ jobs:
         pip install -r requirements-dev.txt
 
     - name: Run black
-      run: black --check app tests
+      run: black --check tutor_stack_content tests
 
     - name: Run isort
-      run: isort --check-only app tests
+      run: isort --check-only tutor_stack_content tests
 
     - name: Run flake8
-      run: flake8 app tests
+      run: flake8 tutor_stack_content tests
 
     - name: Run mypy
-      run: mypy app tests
+      run: mypy tutor_stack_content tests
 
   build:
     runs-on: ubuntu-latest
