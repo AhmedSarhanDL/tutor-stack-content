@@ -1,0 +1,874 @@
+{
+    "concepts": [
+        {
+            "name": "Divisibility, Factors, and Multiples",
+            "description": "This unit covers divisibility rules for various numbers (2, 3, 4, 5, 6, 10), prime factorization, finding the greatest common factor (GCF), and the least common multiple (LCM).  It also explores the relationship between multiples and divisibility.",
+            "examples": [
+                "Determining if 126 is divisible by 2, 3, and 6.",
+                "Finding the prime factorization of 72 (2 x 2 x 2 x 3 x 3).",
+                "Calculating the GCF of 12 and 18 (6).",
+                "Calculating the LCM of 12 and 18 (36).",
+                "Determining if 120 is divisible by 3 (sum of digits is 3, divisible by 3)",
+                "Finding the prime factorization of 36 (2 x 2 x 3 x 3)",
+                "Calculating the GCF of 12 and 18 (6)",
+                "Calculating the LCM of 12 and 18 (36)"
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Divisibility Rules",
+                    "description": "Rules to quickly determine if a number is divisible by another without performing division.",
+                    "examples": [
+                        "A number is divisible by 2 if its last digit is even (0, 2, 4, 6, 8).",
+                        "A number is divisible by 3 if the sum of its digits is divisible by 3."
+                    ]
+                },
+                {
+                    "name": "Prime Factorization",
+                    "description": "Expressing a number as a product of its prime factors.",
+                    "examples": [
+                        "The prime factorization of 24 is 2 x 2 x 2 x 3.",
+                        "The prime factorization of 36 is 2 x 2 x 3 x 3."
+                    ]
+                },
+                {
+                    "name": "Greatest Common Factor (GCF)",
+                    "description": "The largest number that divides two or more numbers without leaving a remainder.",
+                    "examples": [
+                        "The GCF of 12 and 18 is 6.",
+                        "The GCF of 24 and 36 is 12."
+                    ]
+                },
+                {
+                    "name": "Least Common Multiple (LCM)",
+                    "description": "The smallest positive number that is a multiple of two or more numbers.",
+                    "examples": [
+                        "The LCM of 4 and 6 is 12.",
+                        "The LCM of 6 and 9 is 18."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Rational Numbers",
+            "description": "This unit introduces rational numbers, their representation on a number line, comparing and ordering rational numbers, and the concept of absolute value.",
+            "examples": [
+                "Representing -2, 0, and 3 on a number line.",
+                "Comparing -5 and 2 (-5 < 2).",
+                "Ordering -3, 1, 0, 2 from least to greatest (-3, 0, 1, 2).",
+                "Finding the absolute value of -7 (7).",
+                "Representing -2, 0, and 3 on a number line.",
+                "Comparing -3 and 2 (-3 < 2)",
+                "Finding the absolute value of -5 (|-5| = 5)"
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Number Line Representation",
+                    "description": "Showing rational numbers on a number line.",
+                    "examples": [
+                        "Plotting fractions and decimals on a number line.",
+                        "Identifying the position of integers and their opposites."
+                    ]
+                },
+                {
+                    "name": "Comparison and Ordering",
+                    "description": "Using inequality symbols (<, >, =) to compare and order rational numbers.",
+                    "examples": [
+                        "-3 < 2",
+                        "0.5 > -1",
+                        "Ordering fractions with different denominators."
+                    ]
+                },
+                {
+                    "name": "Absolute Value",
+                    "description": "The distance of a number from zero on the number line; always non-negative.",
+                    "examples": [
+                        "|5| = 5",
+                        "|-3| = 3",
+                        "Comparing the absolute values of different numbers."
+                    ]
+                },
+                {
+                    "name": "Additive Inverse",
+                    "description": "The opposite of a number; when added to the number, the result is zero.",
+                    "examples": [
+                        "The additive inverse of 5 is -5.",
+                        "The additive inverse of -2 is 2."
+                    ]
+                },
+                {
+                    "name": "Comparing and Ordering Rational Numbers",
+                    "description": "Using number lines or other methods to compare and order rational numbers.",
+                    "examples": [
+                        "Ordering -2.5, 0, 1, and 2.5 from least to greatest."
+                    ]
+                },
+                {
+                    "name": "Opposite Numbers",
+                    "description": "Two numbers that are equidistant from zero on the number line, but on opposite sides.",
+                    "examples": [
+                        "The opposite of 4 is -4."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Algebraic Expressions",
+            "description": "Mathematical phrases that combine numbers, variables, and operations (addition, subtraction, multiplication, division). They do not contain an equals sign.",
+            "examples": [
+                "Writing an algebraic expression for 'five more than x' (x + 5).",
+                "Simplifying the expression 3x + 2x - x (4x).",
+                "Evaluating an algebraic expression when x = 2 and y = 3.",
+                "Writing an algebraic expression for '5 more than x' (x + 5)",
+                "Identifying like terms in the expression 2x + 3y - x + 5 (2x and -x)",
+                "Simplifying the expression 3(x + 2) + x (4x + 6)",
+                "3x + 5",
+                "2y - 7",
+                "4a + 2b - 1",
+                "x² + 3x - 2"
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Formation of Algebraic Expressions",
+                    "description": "Translating verbal descriptions into algebraic expressions.",
+                    "examples": [
+                        "Translate 'three times a number decreased by four' into an algebraic expression (3x - 4)."
+                    ]
+                },
+                {
+                    "name": "Simplification of Algebraic Expressions",
+                    "description": "Combining like terms and applying the order of operations.",
+                    "examples": [
+                        "Simplify 2x + 5 + 3x - 2 (5x + 3)."
+                    ]
+                },
+                {
+                    "name": "Evaluation of Algebraic Expressions",
+                    "description": "Substituting values for variables and calculating the result.",
+                    "examples": [
+                        "Evaluate 2x² + y if x = 2 and y = 5."
+                    ]
+                },
+                {
+                    "name": "Forming Algebraic Expressions",
+                    "description": "Translating word problems and real-world scenarios into algebraic expressions.",
+                    "examples": [
+                        "Expressing 'the cost of y items at $10 each' as 10y."
+                    ]
+                },
+                {
+                    "name": "Analyzing Algebraic Expressions",
+                    "description": "Identifying the components of algebraic expressions and simplifying them.",
+                    "examples": [
+                        "Identifying the coefficient of x in 5x + 2 as 5."
+                    ]
+                },
+                {
+                    "name": "Equivalent Expressions",
+                    "description": "Expressions that have the same value regardless of the value of the variable(s).",
+                    "examples": [
+                        "2(x + 1) and 2x + 2 are equivalent expressions."
+                    ]
+                },
+                {
+                    "name": "Order of Operations",
+                    "description": "The rules for evaluating expressions involving multiple operations (PEMDAS/BODMAS).",
+                    "examples": [
+                        "Evaluating 2 + 3 x 4 (14)"
+                    ]
+                },
+                {
+                    "name": "Terms",
+                    "description": "Parts of an algebraic expression separated by plus or minus signs.",
+                    "examples": [
+                        "In 3x + 5, the terms are 3x and 5.",
+                        "In 2y - 7 + 4a, the terms are 2y, -7, and 4a."
+                    ]
+                },
+                {
+                    "name": "Coefficients",
+                    "description": "The numerical factor of a term that multiplies a variable.",
+                    "examples": [
+                        "In 3x, the coefficient is 3.",
+                        "In -5y, the coefficient is -5."
+                    ]
+                },
+                {
+                    "name": "Constants",
+                    "description": "Terms without variables.",
+                    "examples": [
+                        "In 3x + 5, the constant is 5.",
+                        "In 2y - 7, the constant is -7."
+                    ]
+                },
+                {
+                    "name": "Variables",
+                    "description": "Letters or symbols that represent unknown values.",
+                    "examples": [
+                        "In 3x, 'x' is the variable.",
+                        "In 2y, 'y' is the variable."
+                    ]
+                },
+                {
+                    "name": "Like Terms",
+                    "description": "Terms that have the same variables raised to the same powers.",
+                    "examples": [
+                        "In 3x + 5x - 2, 3x and 5x are like terms.",
+                        "In 2y² + 4y - y², 2y² and -y² are like terms."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Representing and Analyzing Mathematical Expressions",
+            "description": "This concept focuses on forming and classifying numerical and symbolic expressions, understanding their components, and representing them on a number line.  It also covers forming algebraic expressions using variables to represent unknown values in real-life situations.",
+            "examples": [
+                "Identifying whether 3 + 7 is a numerical or symbolic expression.",
+                "Writing an algebraic expression for '5 times a number increased by 2'."
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Forming Numerical Expressions",
+                    "description": "Creating mathematical phrases using only numbers and operations (addition, subtraction, multiplication, division).",
+                    "examples": [
+                        "The numerical expression for 'Ahmed's height is 1.35 meters and increased by 0.22 meters' is 1.35 + 0.22",
+                        "The numerical expression for 'Sara's weight is 70 kg and decreased by 10 kg' is 70 - 10"
+                    ]
+                },
+                {
+                    "name": "Classifying Mathematical Expressions",
+                    "description": "Categorizing expressions as numerical (numbers and operations only) or symbolic (containing variables, numbers, and operations).",
+                    "examples": [
+                        "2L - 4y is a symbolic expression.",
+                        "77(1.2 + 7.3) is a numerical expression."
+                    ]
+                },
+                {
+                    "name": "Forming Algebraic Expressions with Variables",
+                    "description": "Using variables (letters) to represent unknown quantities in mathematical expressions.  This allows for the representation of generalized mathematical relationships.",
+                    "examples": [
+                        "If Khalid's weight is 53.5 kg and increases by x kg, the algebraic expression is 53.5 + x.",
+                        "If Sherif sleeps y hours daily, the expression for his total sleep in z days is 7z."
+                    ]
+                },
+                {
+                    "name": "Identifying Components of Algebraic Expressions",
+                    "description": "Recognizing the elements of algebraic expressions, such as terms, like terms, constants, and coefficients.",
+                    "examples": [
+                        "In 3z + 2m + 5, the terms are 3z, 2m, and 5; the constants is 5; the coefficients are 3 and 2.",
+                        "In 8y, the term is 8y; the coefficient is 8; there is no constant."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Order of Operations and Exponents",
+            "description": "This concept reinforces the order of operations (PEMDAS/BODMAS) and introduces exponential notation. It explains how to simplify expressions involving exponents and evaluate numerical and algebraic expressions following the correct order of operations.",
+            "examples": [
+                "Simplifying 12 + 5 × 3 - 9 involves multiplication first, then addition and subtraction.",
+                "Evaluating 5⁴ means calculating 5 × 5 × 5 × 5 = 625.",
+                "Simplifying 3⁴ to 81.",
+                "Evaluating 8 × 2² - [7 - (4 + 1)] by following the order of operations (parentheses, exponents, multiplication, subtraction)."
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Repeated Multiplication and Exponents",
+                    "description": "Understanding exponents as a shorthand notation for repeated multiplication of a base number.",
+                    "examples": [
+                        "2³ represents 2 × 2 × 2 = 8.",
+                        "10⁵ represents 10 × 10 × 10 × 10 × 10 = 100,000."
+                    ]
+                },
+                {
+                    "name": "Order of Operations",
+                    "description": "Following the correct sequence of operations (parentheses/brackets, exponents, multiplication and division, addition and subtraction) to evaluate expressions correctly.",
+                    "examples": [
+                        "Evaluating (12 - 7) + 2 × 5² ÷ 10 involves parentheses first, then exponents, multiplication, division, and finally addition.",
+                        "Simplifying 5² - (7 + 2) ÷ 3 × 4 involves parentheses, exponents, division, multiplication, and finally subtraction."
+                    ]
+                },
+                {
+                    "name": "Exponential Notation",
+                    "description": "Understanding and using exponential notation (base and exponent) to represent repeated multiplication.",
+                    "examples": [
+                        "Writing 5 × 5 × 5 as 5³"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Evaluating Algebraic Expressions",
+            "description": "This concept deals with substituting values for variables in algebraic expressions to find their numerical values.  It includes applying this process to real-world scenarios.",
+            "examples": [
+                "Finding the value of 250x - 100 when x = 4 (representing the cost of 4 shoes with a discount).",
+                "Determining the total cost of x number of books at 60 EGP each, given that Sherif has 500 EGP."
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Substitution and Evaluation",
+                    "description": "Replacing variables with given numerical values and performing the indicated mathematical operations to determine the expression's value.",
+                    "examples": [
+                        "If x = 2, the value of 2x + 5 is 9.",
+                        "If y = 0.25, the value of 18 ÷ (4y + 1) is 9."
+                    ]
+                },
+                {
+                    "name": "Real-World Applications",
+                    "description": "Applying the skill of evaluating algebraic expressions to solve problems related to real-life situations.",
+                    "examples": [
+                        "Calculating the total cost of items purchased with discounts.",
+                        "Determining the remaining amount of money after making purchases."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Writing Algebraic Expressions",
+            "description": "This involves translating verbal descriptions (word problems) into algebraic expressions and vice-versa. It also includes representing expressions on a number line.",
+            "examples": [
+                "Translating 'a number increased by 7' into x + 7.",
+                "Writing a verbal description for 5m - 3 ('5 times a number decreased by 3')."
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Verbal to Algebraic",
+                    "description": "Converting word problems or descriptions into algebraic expressions.",
+                    "examples": [
+                        "'The number x added to 7' is x + 7.",
+                        "'8 times a number y minus 7' is 8y - 7."
+                    ]
+                },
+                {
+                    "name": "Algebraic to Verbal",
+                    "description": "Expressing algebraic expressions using words.",
+                    "examples": [
+                        "2x + 7 can be described as 'twice a number plus seven'.",
+                        "y - 8 can be described as 'a number decreased by eight'."
+                    ]
+                },
+                {
+                    "name": "Number Line Representation",
+                    "description": "Graphically representing algebraic expressions on a number line.",
+                    "examples": [
+                        "Showing x + 4 on a number line by starting at x and moving 4 units to the right.",
+                        "Showing y - 3 on a number line by starting at y and moving 3 units to the left."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Identifying Equivalent Algebraic Expressions",
+            "description": "Determining if two algebraic expressions have the same numerical value for all possible values of the variable(s).",
+            "examples": [
+                "Determining if 3x + 3 and 3(x + 1) are equivalent by testing with different values of x.",
+                "Showing that 2x + 5 and 3(5x + 2) are not equivalent expressions."
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Testing for Equivalence",
+                    "description": "Substituting different values for the variable(s) into the expressions to check if they yield the same results.  If they do not produce the same result for even one value, then they are not equivalent.",
+                    "examples": [
+                        "Substitute x = 1 and x = 2 into both expressions; if the results are different for even one case, they aren't equivalent.",
+                        "If the expressions always produce the same result regardless of the variable value, they are equivalent."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Dependent and Independent Variables",
+            "description": "This concept defines dependent and independent variables within a given context and shows how to create algebraic equations to represent relationships between them. It demonstrates how to represent these relationships in tables and graphs.",
+            "examples": [
+                "The total cost of apples (dependent) depends on the number of apples purchased (independent).",
+                "The height of a plant (dependent) depends on the amount of sunlight it receives (independent).",
+                "Identifying the independent variable (number of hours worked) and dependent variable (total earnings) in a scenario about hourly wages.",
+                "Creating an equation (y = 5x) to represent the relationship between the number of correct answers (x) and total score (y) in a test where each correct answer is worth 5 points.",
+                "Representing the equation y = x + 5 graphically on a coordinate plane."
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Identifying Dependent and Independent Variables",
+                    "description": "This sub-concept focuses on distinguishing between dependent and independent variables in real-life situations and representing them symbolically in equations.",
+                    "examples": [
+                        "In the equation y = 2x, x is the independent variable and y is the dependent variable.",
+                        "If the total cost (C) of books depends on the number of books (N) purchased, N is the independent variable and C is the dependent variable."
+                    ]
+                },
+                {
+                    "name": "Writing Equations to Represent Relationships",
+                    "description": "This sub-concept involves creating algebraic equations to model relationships between dependent and independent variables based on real-world scenarios.",
+                    "examples": [
+                        "If the price of one shoe is 50 pounds and Ahmed wants to buy 'x' shoes, the total cost (y) can be represented by the equation y = 50x.",
+                        "If a car travels 12 km per liter of gas, and 'x' represents liters of gas used, the total distance (y) traveled can be represented by y = 12x."
+                    ]
+                },
+                {
+                    "name": "Graphical Representation of Variables",
+                    "description": "This sub-concept explains how to represent dependent and independent variables on a coordinate plane, including creating tables and graphs to visualize the relationships.",
+                    "examples": [
+                        "Plotting points (x, y) from a table of values on a coordinate plane, where x is the independent variable and y is the dependent variable.",
+                        "Creating a line graph showing the relationship between the number of hours worked (x) and the amount of money earned (y)."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Data Analysis and Representation",
+            "description": "This concept covers methods for collecting, analyzing, and representing data, focusing on different types of data (numerical and descriptive), statistical questions, and appropriate graphical representations.",
+            "examples": [
+                "Collecting data on students' favorite colors and representing it using a bar graph.",
+                "Collecting data on students' heights and representing it using a dot plot or histogram."
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Statistical and Non-Statistical Questions",
+                    "description": "This sub-concept focuses on the difference between questions that yield statistical data (multiple answers) and those with single answers.",
+                    "examples": [
+                        "Statistical: What are the favorite subjects of the students in the class?",
+                        "Non-statistical: What is the name of your school?"
+                    ]
+                },
+                {
+                    "name": "Numerical and Descriptive Data",
+                    "description": "This sub-concept distinguishes between numerical data (expressed as numbers) and descriptive data (expressed as qualities or characteristics).",
+                    "examples": [
+                        "Numerical: The ages of students in a class.",
+                        "Descriptive: The favorite colors of students in a class."
+                    ]
+                },
+                {
+                    "name": "Graphical Representations (Dot Plots, Histograms, Bar Graphs)",
+                    "description": "This sub-concept explains various graphical representations suitable for different data types and their uses in data analysis.",
+                    "examples": [
+                        "Dot plot for showing the distribution of a small dataset.",
+                        "Histogram for showing the frequency distribution of a larger dataset with continuous values.",
+                        "Bar graph for comparing different categories of data."
+                    ]
+                },
+                {
+                    "name": "Box Plots",
+                    "description": "This sub-concept explains how to use box plots to represent the five-number summary (minimum, first quartile, median, third quartile, maximum) of a dataset.",
+                    "examples": [
+                        "Creating a box plot to represent the distribution of test scores for a class.",
+                        "Using a box plot to compare the distributions of test scores for two different classes."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Measures of Central Tendency and Dispersion",
+            "description": "This concept introduces various measures used to describe the center and spread of a dataset, including mean, median, mode, range, and outliers.",
+            "examples": [
+                "Calculating the mean, median, and mode of a set of test scores.",
+                "Calculating the range of a set of heights."
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Mean",
+                    "description": "Explains the concept of mean (average) as a measure of central tendency and its calculation methods (using a formula or balance point).",
+                    "examples": [
+                        "The mean of 2, 4, 6, 8 is (2 + 4 + 6 + 8) / 4 = 5.",
+                        "Finding the balance point of a dot plot to determine the mean."
+                    ]
+                },
+                {
+                    "name": "Median",
+                    "description": "Explains median (middle value) as a measure of central tendency and its calculation, particularly for odd and even numbers of data points.",
+                    "examples": [
+                        "The median of 3, 5, 7, 9, 11 is 7.",
+                        "The median of 2, 4, 6, 8 is (4 + 6) / 2 = 5."
+                    ]
+                },
+                {
+                    "name": "Mode",
+                    "description": "Explains mode (most frequent value) as a measure of central tendency.",
+                    "examples": [
+                        "The mode of 1, 2, 2, 3, 4, 4, 4, 5 is 4."
+                    ]
+                },
+                {
+                    "name": "Range",
+                    "description": "Explains range (difference between the maximum and minimum values) as a measure of dispersion.",
+                    "examples": [
+                        "The range of 2, 5, 8, 11 is 11 - 2 = 9."
+                    ]
+                },
+                {
+                    "name": "Outliers",
+                    "description": "Describes outliers as values significantly higher or lower than other values in a dataset and how they impact the choice of central tendency measure.",
+                    "examples": [
+                        "In the data set {2, 4, 6, 8, 100}, 100 is an outlier."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Measures of Central Tendency",
+            "description": "Values that describe the center or typical value of a dataset.",
+            "examples": [
+                "Finding the average height of students in a class.",
+                "Determining the typical score on a test.",
+                "Mean, median, mode"
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Mean",
+                    "description": "The arithmetic average of a dataset. Calculated by summing all values and dividing by the number of values.",
+                    "examples": [
+                        "The mean of 2, 4, 6, 8 is (2 + 4 + 6 + 8) / 4 = 5."
+                    ]
+                },
+                {
+                    "name": "Median",
+                    "description": "The middle value in a sorted dataset. If the dataset has an even number of values, the median is the average of the two middle values.",
+                    "examples": [
+                        "The median of 2, 4, 6, 8 is (4 + 6) / 2 = 5.",
+                        "The median of 1, 3, 5 is 3."
+                    ]
+                },
+                {
+                    "name": "Mode",
+                    "description": "The value(s) that appear most frequently in a dataset. A dataset can have one mode, more than one mode (multimodal), or no mode.",
+                    "examples": [
+                        "The mode of 2, 4, 4, 6, 8 is 4.",
+                        "The mode of 2, 4, 6, 8, 8 is 8."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Outliers",
+            "description": "Data points that significantly differ from the rest of the dataset.",
+            "examples": [
+                "In a dataset of exam scores (70, 75, 80, 85, 90), a score of 20 would be considered an outlier.",
+                "In a dataset of house prices ($200,000, $220,000, $250,000), a price of $1,000,000 would be an outlier.",
+                "A student who scores exceptionally high on a test compared to other students."
+            ],
+            "sub_concepts": []
+        },
+        {
+            "name": "Effect of Outliers",
+            "description": "Outliers have a significant effect on the mean, potentially distorting the representation of the 'typical' value. The median is less affected by outliers.",
+            "examples": [
+                "A dataset of {1, 2, 3, 4, 100} has a mean of 22 and a median of 3. The outlier (100) significantly increases the mean."
+            ],
+            "sub_concepts": []
+        },
+        {
+            "name": "Range",
+            "description": "A measure of dispersion or spread in a dataset. It's calculated as the difference between the highest and lowest values.",
+            "examples": [
+                "The range of the dataset {2, 4, 6, 8} is 8 - 2 = 6."
+            ],
+            "sub_concepts": []
+        },
+        {
+            "name": "Data Representation",
+            "description": "Different ways to visually represent statistical data for better understanding and analysis.",
+            "examples": [
+                "Dot plots (for smaller datasets showing individual data points)",
+                "Box plots (for showing the median, quartiles, and range, highlighting outliers)",
+                "Histograms (for showing the frequency distribution of data grouped into intervals)",
+                "Bar graph",
+                "Histogram",
+                "Box plot",
+                "Dot plot"
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Bar Graph",
+                    "description": "Uses bars to represent categorical data.",
+                    "examples": [
+                        "Showing the number of students who like different colors."
+                    ]
+                },
+                {
+                    "name": "Histogram",
+                    "description": "Uses bars to represent numerical data grouped into intervals.",
+                    "examples": [
+                        "Showing the distribution of student ages."
+                    ]
+                },
+                {
+                    "name": "Box Plot",
+                    "description": "Displays the five-number summary of data (minimum, first quartile, median, third quartile, maximum).",
+                    "examples": [
+                        "Showing the distribution of test scores."
+                    ]
+                },
+                {
+                    "name": "Dot Plot",
+                    "description": "Uses dots to represent individual data points along a number line.",
+                    "examples": [
+                        "Showing the number of pets each student owns."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Using and Analyzing Mathematical Expressions",
+            "description": "This concept focuses on classifying and analyzing different types of mathematical expressions, including numerical expressions and algebraic expressions (algebraic quantities). It also covers the analysis of algebraic quantities, identifying terms, coefficients, and constants within them.",
+            "examples": [
+                "6 × 6 - 6 (numerical expression)",
+                "5y - 2n + 3 + x (algebraic expression)",
+                "Analyzing the algebraic quantity 5x + 3 to identify its terms (5x, 3), coefficient (5), and constant (3)."
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Classifying Mathematical Expressions",
+                    "description": "This involves categorizing expressions as either numerical (containing only numbers and operations) or algebraic (containing numbers, operations, and variables).",
+                    "examples": [
+                        "10 - 4 + 6 × 9 + 2 × 7 + 3 (numerical)",
+                        "-x + m + 1 (algebraic)"
+                    ]
+                },
+                {
+                    "name": "Analyzing Algebraic Quantities",
+                    "description": "This sub-concept deals with breaking down algebraic quantities into their constituent parts: terms (separated by + or -), coefficients (the numbers multiplying variables), and constants (terms without variables).",
+                    "examples": [
+                        "The algebraic quantity 3x + 2 has two terms (3x and 2), a coefficient of 3, and a constant of 2.",
+                        "The algebraic quantity 2z + y + 8 has three terms (2z, y, 8), coefficients of 2 and 1 (implicitly), and a constant of 8."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Algebraic Quantities",
+            "description": "This concept explores the characteristics of algebraic quantities, focusing on similar and dissimilar algebraic terms, identifying the number of terms, similar terms, constants, and coefficients within given expressions.",
+            "examples": [
+                "Identifying similar terms (3x and 5x) and dissimilar terms (3x and 4k) within an algebraic expression.",
+                "Analyzing the algebraic quantity 2x + 4b + 5 to find the number of terms (3), similar terms (none), constant (5), and coefficients (2 and 4)."
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Similar and Dissimilar Algebraic Terms",
+                    "description": "Distinguishing between terms with the same variable (similar) and terms with different variables (dissimilar).",
+                    "examples": [
+                        "Similar terms: 5x and 3x, dissimilar terms: x and y."
+                    ]
+                },
+                {
+                    "name": "Identifying Components of Algebraic Quantities",
+                    "description": "Determining the number of terms, similar terms, constants, and coefficients within an algebraic expression.",
+                    "examples": [
+                        "In 3x + 2 + 5x, there are three terms, similar terms are 3x and 5x, the constant is 2, and the coefficients are 3 and 5."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Writing Algebraic Quantities",
+            "description": "This concept focuses on expressing algebraic quantities using verbal descriptions (word phrases) and vice versa.  It uses various words to represent addition, subtraction, multiplication, and division.",
+            "examples": [
+                "Writing 'the sum of m and 6' as m + 6.",
+                "Writing '3 times m' as 3m.",
+                "Translating 2x - 8 into words as 'twice x minus 8'."
+            ],
+            "sub_concepts": []
+        },
+        {
+            "name": "Equivalent Algebraic Quantities",
+            "description": "This concept introduces the idea of equivalent algebraic quantities, explaining that two algebraic quantities are equivalent if they have the same value when the variable is replaced with any number.  It shows methods to verify equivalence.",
+            "examples": [
+                "Determining if 3x + 5 and 3(x + 1) + 2 are equivalent by substituting different values for x.",
+                "Showing that 2(x + 6) and 2x + 12 are equivalent by applying the distributive property."
+            ],
+            "sub_concepts": []
+        },
+        {
+            "name": "Solving Algebraic Equations",
+            "description": "This concept focuses on solving simple algebraic equations using inverse operations. It uses visual representations like a balance scale to illustrate the process of isolating the variable.",
+            "examples": [
+                "Solving x + 1 = 5 by subtracting 1 from both sides.",
+                "Solving 2x = 6 by dividing both sides by 2."
+            ],
+            "sub_concepts": []
+        },
+        {
+            "name": "Exploring and Solving Inequalities",
+            "description": "This concept introduces inequalities and their solutions. It explains how to represent solutions on a number line, distinguishing between inequalities with and without equality.",
+            "examples": [
+                "Representing the solution to x < 4 on a number line.",
+                "Representing the solution to x ≥ -2 on a number line."
+            ],
+            "sub_concepts": []
+        },
+        {
+            "name": "Data and Statistical Questions",
+            "description": "This section introduces the concept of statistical questions, which are questions that anticipate variability in the answers. It also introduces the concepts of numerical and categorical data.",
+            "examples": [
+                "Identifying statistical questions (e.g., What are the favorite colors of the students in your class?) and non-statistical questions (e.g., What is the name of your school?).",
+                "Classifying data as numerical (e.g., age, height) or categorical (e.g., favorite color, gender)."
+            ],
+            "sub_concepts": []
+        },
+        {
+            "name": "Types of Statistical Data",
+            "description": "Categorization of data based on their nature and characteristics.",
+            "examples": [
+                "Number of students in a class (numerical data)",
+                "Favorite colors of students (categorical data)"
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Numerical Data",
+                    "description": "Data represented by numbers. Can be further classified as discrete (countable) or continuous (measurable).",
+                    "examples": [
+                        "Height of students (continuous)",
+                        "Number of siblings (discrete)"
+                    ]
+                },
+                {
+                    "name": "Categorical Data",
+                    "description": "Data representing categories or qualities.",
+                    "examples": [
+                        "Eye color",
+                        "Gender",
+                        "Favorite subject"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Types of Statistical Questions",
+            "description": "Classification of questions based on whether they generate statistical data.",
+            "examples": [
+                "How many students are in your class? (statistical)",
+                "Is the sky blue? (non-statistical)"
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Statistical Questions",
+                    "description": "Questions that yield a variety of answers and generate statistical data.",
+                    "examples": [
+                        "What are the favorite sports of students in your school?",
+                        "How many hours do students spend studying each day?"
+                    ]
+                },
+                {
+                    "name": "Non-Statistical Questions",
+                    "description": "Questions that have a single, definitive answer.",
+                    "examples": [
+                        "What is the capital of France?",
+                        "What is 2 + 2?"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Measures of Dispersion",
+            "description": "Values that describe the spread or variability of data in a dataset.",
+            "examples": [
+                "Range"
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Range",
+                    "description": "The difference between the highest and lowest values in a dataset.",
+                    "examples": [
+                        "Determining the range of test scores in a class."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Equations",
+            "description": "Mathematical statements showing that two expressions are equal. They contain an equals sign.",
+            "examples": [
+                "x + 5 = 10",
+                "2y - 3 = 7",
+                "3x + 2 = 11",
+                "x² - 4 = 0"
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Solving Equations",
+                    "description": "Finding the value(s) of the variable that make the equation true.",
+                    "examples": [
+                        "To solve x + 5 = 10, subtract 5 from both sides: x = 5.",
+                        "To solve 2y - 3 = 7, add 3 to both sides, then divide by 2: y = 5."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Inequalities",
+            "description": "Mathematical statements comparing two expressions using inequality symbols (<, >, ≤, ≥).",
+            "examples": [
+                "x < 5",
+                "y > 10",
+                "2a ≤ 8",
+                "3b ≥ -6"
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Solving Inequalities",
+                    "description": "Finding the range of values for the variable that make the inequality true.",
+                    "examples": [
+                        "To solve x < 5, the solution is all numbers less than 5.",
+                        "To solve 2a ≤ 8, divide both sides by 2: a ≤ 4."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Number Systems",
+            "description": "Sets of numbers with specific properties.",
+            "examples": [
+                "Natural numbers (1, 2, 3, ...)",
+                "Whole numbers (0, 1, 2, 3, ...)",
+                "Integers (-3, -2, -1, 0, 1, 2, 3, ...)",
+                "Rational numbers (numbers that can be expressed as a fraction)",
+                "Irrational numbers (numbers that cannot be expressed as a fraction)"
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Real Numbers",
+                    "description": "All rational and irrational numbers.",
+                    "examples": [
+                        "1, 2, 3, π, √2"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Data Analysis",
+            "description": "The process of inspecting, cleaning, transforming, and modeling data with the goal of discovering useful information, informing conclusions, and supporting decision-making.",
+            "examples": [
+                "Calculating the mean, median, mode, and range of a dataset.",
+                "Creating and interpreting various types of graphs (bar graphs, histograms, box plots)."
+            ],
+            "sub_concepts": [
+                {
+                    "name": "Measures of Central Tendency",
+                    "description": "Values that represent the center or typical value of a dataset.  These include the mean (average), median (middle value), and mode (most frequent value).",
+                    "examples": [
+                        "Mean of {2, 4, 6, 8}: (2+4+6+8)/4 = 5",
+                        "Median of {2, 4, 6, 8}: (4+6)/2 = 5",
+                        "Mode of {2, 4, 6, 8, 8}: 8"
+                    ]
+                },
+                {
+                    "name": "Measures of Dispersion",
+                    "description": "Values that describe the spread or variability of a dataset.  These include the range (difference between the largest and smallest values).",
+                    "examples": [
+                        "Range of {2, 4, 6, 8}: 8 - 2 = 6"
+                    ]
+                },
+                {
+                    "name": "Outliers",
+                    "description": "Data points that significantly differ from other observations in a dataset.",
+                    "examples": [
+                        "In the dataset {2, 4, 6, 8, 100}, 100 is an outlier."
+                    ]
+                },
+                {
+                    "name": "Data Representation",
+                    "description": "Visualizing data using graphs such as bar graphs, histograms, line graphs, and box plots.",
+                    "examples": [
+                        "A bar graph shows the number of students in each grade level.",
+                        "A histogram displays the frequency distribution of exam scores."
+                    ]
+                }
+            ]
+        }
+    ]
+}
