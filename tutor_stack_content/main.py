@@ -1,191 +1,193 @@
 from typing import Dict, List, Optional
 import json
 import os
+import logging
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException, UploadFile, File, Form
+from fastapi import FastAPI, HTTPException, UploadFile, File, Form, Depends, Query
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ValidationError
+from typing import Annotated
+
+from tutor_stack_auth.main import fastapi_users
+from tutor_stack_auth.models import User
+from tutor_stack_auth.schemas import UserRead
+from .gcs_curriculum import GCSCurriculumFetcher
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+current_active_user = fastapi_users.current_user(active=True)
 
 app = FastAPI(
     title="Content Service",
     description="Content management service for the Tutor Stack platform",
     version="1.0.0",
+    debug=True,
 )
 
-# Naive in-memory storage (in production, use a proper database)
-texts: List[str] = []
-uploaded_files: List[Dict] = []
+gcs_fetcher = GCSCurriculumFetcher()
 
-# Path to the curriculum JSON file
-CURRICULUM_PATH = Path(__file__).parent.parent / "unified_curriculum.json"
+# --- Pydantic Models for Curriculum Data ---
 
+class SubConcept(BaseModel):
+    name: str
+    description: str
+    examples: Optional[List[str]] = []
+    exercises: Optional[List[dict]] = []
 
-class Document(BaseModel):
-    text: str = Field(..., description="The text content to be stored")
+class Concept(BaseModel):
+    name: str
+    description: str
+    examples: Optional[List[str]] = []
+    sub_concepts: Optional[List[SubConcept]] = []
+    exercises: Optional[List[dict]] = []
 
+class SubjectConceptsResponse(BaseModel):
+    grade: str
+    term: str
+    subject: str
+    concepts: List[Concept]
 
-class SearchQuery(BaseModel):
-    text: str = Field(..., description="The search query text")
+# Path to the curriculum JSON files (fallback)
+CURRICULUM_BASE_PATH = Path(__file__).parent.parent
+P5_CURRICULUM_PATH = CURRICULUM_BASE_PATH / "P5.json"
+P6_CURRICULUM_PATH = CURRICULUM_BASE_PATH / "P6.json"
 
-
-class SearchResponse(BaseModel):
-    chunks: List[str] = Field(..., description="List of matching text chunks")
-
-
-class FileUploadResponse(BaseModel):
-    filename: str = Field(..., description="Name of the uploaded file")
-    file_id: str = Field(..., description="Unique identifier for the uploaded file")
-    size: int = Field(..., description="Size of the uploaded file in bytes")
-    content_type: str = Field(..., description="MIME type of the uploaded file")
+def get_curriculum_path_for_user(user: User) -> Path:
+    if user.grade == "6":
+        return P6_CURRICULUM_PATH
+    return P5_CURRICULUM_PATH
 
 
 @app.get("/health")
 async def health_check() -> Dict[str, str]:
-    """Health check endpoint to verify service status"""
+    logger.info("Health check endpoint was called.")
     return {"status": "healthy"}
 
 
-@app.post("/ingest")
-async def ingest(doc: Document) -> Dict[str, int]:
-    """
-    Ingest new content into the system
-
-    This endpoint stores the provided text content and returns a unique identifier
-    """
+@app.get("/curriculum/grades")
+async def get_available_grades() -> Dict[str, List[str]]:
+    """Get list of available grades from GCS."""
+    logger.info("Request received for available grades.")
     try:
-        texts.append(doc.text)
-        return {"id": len(texts) - 1}
+        grades = gcs_fetcher.get_available_grades()
+        logger.info(f"Returning {len(grades)} grades.")
+        return {"grades": grades}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error(f"Failed to get available grades: {e}", exc_info=True)
+        raise HTTPException(
+            status_code=500, detail=f"Failed to get available grades: {str(e)}"
+        )
 
 
-@app.post("/search", response_model=SearchResponse)
-async def search(q: SearchQuery, k: int = 3) -> SearchResponse:
-    """
-    Search for content matching the query
-
-    This endpoint performs a simple substring search and returns up to k matching chunks
-    """
+@app.get("/curriculum/structure/{grade}")
+async def get_grade_structure(grade: str) -> Dict:
+    """Get the structure of a specific grade."""
+    logger.info(f"Request received for grade structure: {grade}")
     try:
-        # Simple substring search for now
-        # In production, use a proper search engine like Elasticsearch
-        matches = [t for t in texts if q.text.lower() in t.lower()]
-        return SearchResponse(chunks=matches[:k])
+        structure = gcs_fetcher.get_grade_structure(grade)
+        logger.info(f"Returning structure for grade: {grade}")
+        return structure
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error(f"Failed to get structure for grade {grade}: {e}", exc_info=True)
+        raise HTTPException(
+            status_code=500, detail=f"Failed to get structure for grade {grade}: {str(e)}"
+        )
 
 
-@app.post("/upload-pdf", response_model=FileUploadResponse)
-async def upload_pdf(
-    file: UploadFile = File(..., description="PDF file to upload"),
-    description: Optional[str] = Form(None, description="Optional description of the PDF content")
-) -> FileUploadResponse:
-    """
-    Upload a PDF file to the content system
-    
-    This is a dummy implementation that simulates PDF upload without actually storing the file
-    """
+@app.get("/curriculum/{grade}/{term}/{subject}", response_model=SubjectConceptsResponse)
+async def get_subject_concepts(
+    grade: str, term: str, subject: str
+) -> SubjectConceptsResponse:
+    """Get concepts for a specific subject, generating them if they don't exist."""
+    logger.info(f"Request received for concepts: {grade}/{term}/{subject}")
     try:
-        # Validate file type
-        if not file.content_type or file.content_type != "application/pdf":
-            raise HTTPException(status_code=400, detail="Only PDF files are allowed")
-        
-        # Validate file size (max 10MB)
-        if file.size and file.size > 10 * 1024 * 1024:
-            raise HTTPException(status_code=400, detail="File size must be less than 10MB")
-        
-        # Generate a unique file ID (in production, use a proper ID generation)
-        import uuid
-        file_id = str(uuid.uuid4())
-        
-        # Simulate file processing (in production, you would save the file and extract text)
-        file_info = {
-            "id": file_id,
-            "filename": file.filename,
-            "size": file.size or 0,
-            "content_type": file.content_type,
-            "description": description,
-            "uploaded_at": "2024-01-01T00:00:00Z",  # In production, use actual timestamp
-            "status": "processed"
+        concepts_data = gcs_fetcher.get_subject_concepts(grade, term, subject)
+        logger.info(f"Loaded {len(concepts_data)} concepts for {grade}/{term}/{subject}")
+
+        response_payload = {
+            "grade": grade,
+            "term": term,
+            "subject": subject,
+            "concepts": concepts_data,
         }
         
-        uploaded_files.append(file_info)
-        
-        return FileUploadResponse(
-            filename=file.filename,
-            file_id=file_id,
-            size=file.size or 0,
-            content_type=file.content_type
+        # Manually validate before returning to FastAPI for clearer error logging
+        validated_data = SubjectConceptsResponse.model_validate(response_payload)
+        logger.info(f"Successfully validated concepts for {grade}/{term}/{subject}")
+        return validated_data
+
+    except ValidationError as e:
+        logger.error(f"Data validation error for {grade}/{term}/{subject}: {e}", exc_info=True)
+        raise HTTPException(
+            status_code=500,
+            detail=f"Curriculum data is malformed. Details: {e}",
         )
-        
-    except HTTPException:
-        raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to upload file: {str(e)}")
+        logger.error(f"Failed to get concepts for {grade}/{term}/{subject}: {e}", exc_info=True)
+        raise HTTPException(
+            status_code=500,
+            detail=f"An unexpected error occurred while fetching concepts for {grade}/{term}/{subject}: {str(e)}",
+        )
 
 
-@app.get("/uploaded-files")
-async def list_uploaded_files() -> Dict[str, List[Dict]]:
-    """
-    List all uploaded files
-    """
+@app.get("/curriculum/user")
+async def get_user_curriculum_structure(
+    user: User = Depends(current_active_user),
+) -> Dict:
+    """Get curriculum structure for the current user's grade."""
+    logger.info(f"Request received for user curriculum structure: user_id={user.id}, grade={user.grade}")
+    grade_mapping = {
+        "5": "P5", "6": "P6", "7": "G7", "8": "G8",
+        "9": "G9", "10": "G10", "11": "G11", "12": "G12",
+    }
+    gcs_grade = grade_mapping.get(user.grade, "P5")
+    
     try:
-        return {"files": uploaded_files}
+        structure = gcs_fetcher.get_grade_structure(gcs_grade)
+        logger.info(f"Returning curriculum structure for user_id={user.id}, grade={gcs_grade}")
+        return {
+            "grade": gcs_grade,
+            "structure": structure,
+            "user_grade": user.grade,
+        }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error(f"GCS fetch failed for user_id={user.id}, grade={gcs_grade}: {e}", exc_info=True)
+        # Fallback to local files if GCS fails
+        try:
+            logger.info(f"Falling back to local curriculum files for user_id={user.id}")
+            curriculum_path = get_curriculum_path_for_user(user)
+            if not curriculum_path.exists():
+                logger.error(f"Fallback curriculum file not found: {curriculum_path.name}")
+                raise HTTPException(status_code=404, detail=f"Curriculum file not found: {curriculum_path.name}")
+            with open(curriculum_path, 'r', encoding='utf-8') as f:
+                curriculum_data = json.load(f)
+            
+            # This is a mock structure for the fallback
+            fallback_structure = {
+                "grade": gcs_grade,
+                "structure": {
+                    "grade": gcs_grade,
+                    "terms": {
+                        "Term1": ["mathematics", "science"],
+                        "Term2": ["mathematics", "science"],
+                    }
+                },
+                "concepts": curriculum_data.get("concepts", []),
+                "user_grade": user.grade,
+                "source": "local_fallback"
+            }
+            logger.info(f"Successfully loaded fallback curriculum for user_id={user.id}")
+            return fallback_structure
+        except Exception as fallback_error:
+            logger.error(f"Failed to load fallback curriculum: {fallback_error}", exc_info=True)
+            raise HTTPException(status_code=500, detail=f"Failed to load curriculum: {fallback_error}")
 
 
 @app.get("/curriculum")
-async def get_curriculum() -> Dict:
-    """
-    Get the unified curriculum JSON data
-    """
-    try:
-        if not CURRICULUM_PATH.exists():
-            raise HTTPException(status_code=404, detail="Curriculum file not found")
-        
-        with open(CURRICULUM_PATH, 'r', encoding='utf-8') as f:
-            curriculum_data = json.load(f)
-        
-        return curriculum_data
-        
-    except json.JSONDecodeError as e:
-        raise HTTPException(status_code=500, detail=f"Invalid JSON in curriculum file: {str(e)}")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to load curriculum: {str(e)}")
-
-
-@app.get("/curriculum/concepts")
-async def get_curriculum_concepts() -> Dict[str, List[Dict]]:
-    """
-    Get just the concepts from the curriculum
-    """
-    try:
-        curriculum_data = await get_curriculum()
-        return {"concepts": curriculum_data.get("concepts", [])}
-        
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@app.get("/curriculum/concepts/{concept_name}")
-async def get_concept_by_name(concept_name: str) -> Dict:
-    """
-    Get a specific concept by name
-    """
-    try:
-        curriculum_data = await get_curriculum()
-        concepts = curriculum_data.get("concepts", [])
-        
-        # Find concept by name (case-insensitive)
-        for concept in concepts:
-            if concept.get("name", "").lower() == concept_name.lower():
-                return concept
-        
-        raise HTTPException(status_code=404, detail=f"Concept '{concept_name}' not found")
-        
-    except HTTPException:
-        raise
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+async def get_curriculum(user: User = Depends(current_active_user)) -> Dict:
+    """Legacy endpoint for user curriculum. Now returns structure only."""
+    logger.info(f"Legacy curriculum request for user_id={user.id}")
+    return await get_user_curriculum_structure(user)

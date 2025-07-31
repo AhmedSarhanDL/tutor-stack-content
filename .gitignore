@@ -43,4 +43,4 @@ htmlcov/
 
 # Local development
 .env
-.env.local 
+.env.local .env
